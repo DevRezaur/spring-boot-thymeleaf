@@ -6,9 +6,19 @@
     <title>Home Page</title>
 </head>
 <body>
-    <h1>Candidate Info</h1>
-    <p th:text="${candidate.id}"></p>
-    <p th:text="${candidate.name}"></p>
-    <p th:text="${candidate.batch}"></p>
+    <h1>All Candidate Info</h1>
+
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Batch</th>
+        </tr>
+        <tr th:each="candidate : ${candidateList}">
+            <td th:text="${candidate.id}"></td>
+            <td th:text="${candidate.name}"></td>
+            <td th:text="${candidate.batch}"></td>
+        </tr>
+    </table>
 </body>
 </html>
