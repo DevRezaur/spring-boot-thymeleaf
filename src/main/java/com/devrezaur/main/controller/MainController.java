@@ -32,8 +32,8 @@ public class MainController {
         return "add-candidate-page.html";
     }
 
-    @PostMapping("/save-candidate")
-    public String saveCandidate(@ModelAttribute Candidate candidate) {
+    @PostMapping("/add-candidate")
+    public String addCandidate(@ModelAttribute Candidate candidate) {
         candidateService.addCandidate(candidate);
         return "home-page.html";
     }
