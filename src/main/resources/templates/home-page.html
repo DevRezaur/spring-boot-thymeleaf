@@ -10,6 +10,8 @@
     <h1>Hello Programmers</h1>
     <hr />
 
+    <p th:if="${error}" th:text="${error}"></p>
+
     <br />
     <form action="/list-all-candidates">
         <button type="submit">List All Candidates</button>

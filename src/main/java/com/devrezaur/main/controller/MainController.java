@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class MainController {
@@ -16,13 +17,18 @@ public class MainController {
     @Autowired
     private CandidateService candidateService;
 
-    @GetMapping("/")
+    @GetMapping("/home")
     public String homePage() {
         return "home-page.html";
     }
 
     @PostMapping("/find-by-id")
-    public String findById(@RequestParam Integer id, Model model) {
+    public String findById(@RequestParam Integer id, Model model, RedirectAttributes redirectAttributes) {
+        Candidate candidate = candidateService.findById(id);
+        if (candidate == null) {
+            redirectAttributes.addFlashAttribute("error", "No candidate found");
+            return "redirect:/home";
+        }
         model.addAttribute("candidate", candidateService.findById(id));
         return "candidate-page.html";
     }
