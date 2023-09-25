@@ -4,28 +4,56 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/home-page.css}">
     <title>Home Page</title>
 </head>
 <body>
-    <h1>Hello Programmers</h1>
-    <hr />
+    <!-- Navbar Start -->
+    <div class="nav-bar">
+        <p>Spring Boot Thymeleaf</p>
+    </div>
+    <!-- Navbar End -->
 
-    <p th:if="${error}" th:text="${error}"></p>
+    <!-- Main Container Start -->
+    <div class="main-container">
+        <div class="left-container">
+            <img th:src="@{/image/banner-image.svg}" alt="banner-image">
+        </div>
 
-    <br />
-    <form action="/list-all-candidates">
-        <button type="submit">List All Candidates</button>
-    </form>
+        <div class="right-container">
+            <div class="card">
+                <h1>Spring Boot Thymeleaf Demo</h1>
+                <hr />
 
-    <br />
-    <form action="/add-candidate">
-        <button type="submit">Add Candidate</button>
-    </form>
+                <p th:if="${error}" th:text="${error}"></p>
 
-    <br />
-    <form action="/find-by-id" method="post">
-        <input type="number" name="id" placeholder="Candidate Id" />
-        <button type="submit">Find Candidate By Id</button>
-    </form>
+                <br />
+                <form action="/list-all-candidates">
+                    <button type="submit">List All Candidates</button>
+                </form>
+
+                <br />
+                <form action="/add-candidate">
+                    <button type="submit">Add Candidate</button>
+                </form>
+
+                <br />
+                <form action="/find-by-id" method="post">
+                    <input type="number" name="id" placeholder="Candidate Id" required />
+                    <button type="submit">Find Candidate By Id</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Main Container End -->
+
+    <!-- Footer Start -->
+    <div class="footer">
+        <p>(C) DevRezaur</p>
+    </div>
+    <!-- Footer End -->
+
 </body>
 </html>

@@ -2,6 +2,7 @@ package com.devrezaur.main.controller;
 
 import com.devrezaur.main.model.Candidate;
 import com.devrezaur.main.service.CandidateService;
+import jakarta.annotation.Nullable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,7 +24,7 @@ public class MainController {
     }
 
     @PostMapping("/find-by-id")
-    public String findById(@RequestParam Integer id, Model model, RedirectAttributes redirectAttributes) {
+    public String findById(@RequestParam @Nullable Integer id, Model model, RedirectAttributes redirectAttributes) {
         Candidate candidate = candidateService.findById(id);
         if (candidate == null) {
             redirectAttributes.addFlashAttribute("error", "No candidate found");
