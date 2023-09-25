@@ -23,6 +23,7 @@ button:hover {
 }
 
 .nav-bar {
+    height: 50px;
     padding: 15px 5px;
     background-color: #212529;
     color: #fff;
@@ -30,7 +31,7 @@ button:hover {
 }
 
 .main-container {
-    min-height: calc(100vh - 98px);
+    min-height: calc(100vh - 100px);
     padding: 50px 75px;
     display: grid;
     grid-template-columns: 1fr;
@@ -74,6 +75,7 @@ button:hover {
 }
 
 .footer {
+    height: 50px;
     padding: 15px 5px;
     background-color: #212529;
     color: #fff;
